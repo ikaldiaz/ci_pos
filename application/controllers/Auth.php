@@ -7,6 +7,8 @@
  */
 class Auth extends CI_Controller
 {
+	// $this->load->add_package_path(APPPATH.'third_party/ion_auth/');
+	// $this->load->library('ion_auth');
 	public $data = [];
 
 	public function __construct()
