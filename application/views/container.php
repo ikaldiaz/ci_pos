@@ -4,7 +4,7 @@
 
     <?php
         //for warning -> flash_message
-        //for info -> success_message
+        //for info -> success_message 
         
         $arr = $this->session->flashdata();
         if(!empty($arr['flash_message'])){

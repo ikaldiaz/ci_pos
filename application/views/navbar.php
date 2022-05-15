@@ -1,6 +1,6 @@
         <?php
         //check user level
-	    $dataLevel = $this->userlevel->checkLevel($role);
+	    $dataLevel = $this->userlevel->checkLevel($role); 
 
         $result = $this->user_model->getAllSettings();
 	    $site_title = $result->site_title;

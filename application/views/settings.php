@@ -44,17 +44,33 @@
         </select>
         </div>
         
-        <div class="form-group">
+        <div class="form-group"> 
         <span>Theme</span>
         <select name="theme" id="theme" class="form-control">
-            <option value="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css">Cosmo</option>
-            <option value="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css">Darkly</option>
-            <option value="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">Flatly</option>
-            <option value="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css">Journal</option>
-            <option value="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">Lumen</option>
-            <option value="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css">Slate</option>
-            <option value="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">Superhero</option>
-            <option value="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css">Yeti</option>
+            <!-- https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css -->
+            <!-- https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cerulean/bootstrap.min.css -->
+            
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">Cerulean</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css">Cosmo</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cyborg/bootstrap.min.css">Cyborg</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/darkly/bootstrap.min.css">Darkly</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css">Flatly</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/journal/bootstrap.min.css">Journal</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/litera/bootstrap.min.css">Litera</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lumen/bootstrap.min.css">Lumen</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lux/bootstrap.min.css">Lux</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/materia/bootstrap.min.css">Materia</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/minty/bootstrap.min.css">Minty</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/pulse/bootstrap.min.css">Pulse</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css">Sandstone</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/simplex/bootstrap.min.css">Simplex</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sketchy/bootstrap.min.css">Sketchy</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/slate/bootstrap.min.css">Slate</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/solar/bootstrap.min.css">Solar</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/spacelab/bootstrap.min.css">Spacelab</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/superhero/bootstrap.min.css">Superhero</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/united/bootstrap.min.css">United</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/yeti/bootstrap.min.css">Yeti</option>
         </select>
         </div>
         <?php echo form_submit(array('value'=>'Save', 'name'=>'submit', 'class'=>'btn btn-primary btn-block')); ?>
