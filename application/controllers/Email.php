@@ -19,7 +19,7 @@ class Email extends CI_Controller{
         $mail->Host     = 'mail.megasuarwood.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'user@megasuarwood.com';
-        $mail->Password = 'B4byb4r0n@';
+        $mail->Password = '';
         $mail->SMTPSecure = 'ssl';
         $mail->Port     = 465;
 
