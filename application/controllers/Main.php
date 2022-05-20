@@ -500,23 +500,52 @@ class Main extends CI_Controller {
                     $url = site_url() . 'main/complete/token/' . $qstring;
                     $link = '<a href="' . $url . '">' . $url . '</a>';
     
-                    $this->load->library('email');
+                    // Load PHPMailer library
+                    $this->load->library('phpmailer_lib');
                     $this->load->library('sendmail');
                     
                     $message = $this->sendmail->sendRegister($this->input->post('lastname'),$this->input->post('email'),$link,$sTl);
+                    
                     $to_email = $this->input->post('email');
-                    $this->email->from($this->config->item('register'), 'Set Password ' . $this->input->post('firstname') .' '. $this->input->post('lastname')); //from sender, title email
-                    $this->email->to($to_email);
-                    $this->email->subject('Set Password Login');
-                    $this->email->message($message);
-                    $this->email->set_mailtype("html");
-    
-                    //Sending mail
-                    if($this->email->send()){
-                        redirect(site_url().'main/successregister/');
-                    }else{
-                        $this->session->set_flashdata('flash_message', 'There was a problem sending an email.');
+
+                    // PHPMailer object
+                    $mail = $this->phpmailer_lib->load();
+
+                    // SMTP configuration
+                    $mail->isSMTP();
+                    // $mail->Host     = 'mail.megasuarwood.com';
+                    $mail->Host     = gethostbyname('smtp.pepipost.com');
+                    
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'user@megasuarwood.com';
+                    $mail->Password = 'B4byb4r0n@';
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->Port     = 465;
+
+                    $mail->setFrom($this->config->item('register'), $sTl);
+                    $mail->addReplyTo($this->config->item('register'), $sTl);
+
+                    // Add a recipient
+                    $mail->addAddress($to_email);
+
+                    // Email subject
+                    $mail->Subject = 'Set Password Login';
+
+                    // Set email format to HTML
+                    $mail->isHTML(true);
+
+                    // Email body content
+                    $mailContent = $message;
+                    $mail->Body = $mailContent;
+
+                    // Send email
+                    if(!$mail->send()){
+                        // echo 'Message could not be sent.';
+                        // echo 'Mailer Error: ' . $mail->ErrorInfo;
+                        $this->session->set_flashdata('flash_message', 'There was a problem sending an email. Error:'. $mail->ErrorInfo);
                         exit;
+                    }else{
+                        redirect(site_url().'main/successregister/');
                     }
                 }
             };
