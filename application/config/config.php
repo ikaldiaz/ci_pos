@@ -136,7 +136,7 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+$config['composer_autoload'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -530,7 +530,7 @@ $config['proxy_ips'] = '';
 | Roles user and status user
 |
 */
-$config['roles'] = array('4', '1');
+$config['roles'] = array('4','1');
 $config['status'] = array('pending', 'approved');
 $config['banned_users'] = array('unban', 'ban');
 

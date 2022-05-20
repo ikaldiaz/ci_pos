@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Main extends CI_Controller { 
 
     public $status;
     public $roles;
@@ -32,7 +32,7 @@ class Main extends CI_Controller {
 	    $dataLevel = $this->userlevel->checkLevel($data['role']);
 	    //check user level
         
-	    $data['title'] = "Dashboard Admin";
+	    $data['title'] = "Dashboard AdminXX";
 	    
         if(empty($this->session->userdata['email'])){
             redirect(site_url().'main/login/');
@@ -432,7 +432,7 @@ class Main extends CI_Controller {
         $result = $this->user_model->getAllSettings();
         $sTl = $result->site_title;
         $data['recaptcha'] = $result->recaptcha;
-
+ 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('header', $data);
             $this->load->view('container');
