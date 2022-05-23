@@ -518,8 +518,8 @@ class Main extends CI_Controller {
                     $mail->Host     = gethostbyname('smtp.pepipost.com');
                     
                     $mail->SMTPAuth = true;
-                    $mail->Username = 'user@megasuarwood.com';
-                    $mail->Password = 'B4byb4r0n@';
+                    $mail->Username = '';
+                    $mail->Password = '';
                     $mail->SMTPSecure = 'ssl';
                     $mail->Port     = 465;
 
