@@ -4,6 +4,9 @@
  *
  * This library is based on official reCAPTCHA library for PHP
  * https://github.com/google/ReCAPTCHA
+ * 
+ * Using Recaptcha V2 Checkbox
+ *
  *
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
