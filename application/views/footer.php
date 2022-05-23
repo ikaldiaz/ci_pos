@@ -3,7 +3,7 @@
     <footer>
         <div class="col-md-12" style="text-align:center;">
             <hr>
-            Copyright - 2017 | <a href="https://connectwithdev.com/">connectwithdev.com</a>
+            Copyright - 2017 | <a href="https://connectwithdev.com/">connectwithdev.com</a> | Dynato Auth System
         </div>
     </footer>
     </div><!-- /container -->  

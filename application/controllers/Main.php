@@ -116,7 +116,8 @@ class Main extends CI_Controller {
         $result = $this->user_model->getAllSettings();
         $data['id'] = $result->id;
 	    $data['site_title'] = $result->site_title;
-	    $data['timezone'] = $result->timezone;
+        $data['timezone'] = $result->timezone;
+	    $data['theme'] = $result->theme;
 	    
 	    if (!empty($data['timezone']))
 	    {

@@ -28,7 +28,8 @@ class Password {
 	function create_hash($password)
 	{
 		// format: algorithm:iterations:salt:hash
-		$salt = base64_encode(password_hash(self::PBKDF2_SALT_BYTE_SIZE, MCRYPT_DEV_URANDOM));
+		// $salt = base64_encode(password_hash(self::PBKDF2_SALT_BYTE_SIZE, MCRYPT_DEV_URANDOM));
+		$salt = base64_encode(password_hash(self::PBKDF2_SALT_BYTE_SIZE, PASSWORD_ARGON2ID ));
 		return self::PBKDF2_HASH_ALGORITHM . ":" . self::PBKDF2_ITERATIONS . ":" .  $salt . ":" .
 			base64_encode($this->pbkdf2(
 				self::PBKDF2_HASH_ALGORITHM,
