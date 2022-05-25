@@ -435,10 +435,13 @@ class Main extends CI_Controller {
         $data['recaptcha'] = $result->recaptcha;
  
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('header', $data);
-            $this->load->view('container');
-            $this->load->view('register');
-            $this->load->view('footer');
+            // $this->load->view('header', $data);
+            // $this->load->view('container');
+            // $this->load->view('register');
+            // $this->load->view('footer');
+            $this->load->view('auth/header', $data);
+            $this->load->view('auth/register');
+            $this->load->view('auth/footer');
         }else{
             if($this->user_model->isDuplicate($this->input->post('email'))){
                 $this->session->set_flashdata('flash_message', 'User email already exists');
@@ -567,10 +570,13 @@ class Main extends CI_Controller {
     public function successresetpassword()
     {
         $data['title'] = "Success Reset Password";
-        $this->load->view('header', $data);
-        $this->load->view('container');
+        // $this->load->view('header', $data);
+        // $this->load->view('container');
+        // $this->load->view('reset-pass-info');
+        // $this->load->view('footer');
+        $this->load->view('auth/header', $data);
         $this->load->view('reset-pass-info');
-        $this->load->view('footer');
+        $this->load->view('auth/footer');
     }
 
     protected function _islocal(){
@@ -647,13 +653,16 @@ class Main extends CI_Controller {
             $data['title'] = "Welcome Back!";
             
             $result = $this->user_model->getAllSettings();
-            $data['recaptcha'] = $result->recaptcha;
+            $data['recaptcha'] = $result->recaptcha; 
 
             if($this->form_validation->run() == FALSE) {
-                $this->load->view('header', $data);
-                $this->load->view('container');
-                $this->load->view('login');
-                $this->load->view('footer');
+                // $this->load->view('header', $data);
+                // $this->load->view('container');
+                // $this->load->view('login');
+                // $this->load->view('footer');
+                $this->load->view('auth/header', $data);
+                $this->load->view('auth/login');
+                $this->load->view('auth/footer');
             }else{
                 $post = $this->input->post();
                 $clean = $this->security->xss_clean($post);
@@ -747,10 +756,13 @@ class Main extends CI_Controller {
         $data['recaptcha'] = $result->recaptcha;
 
         if($this->form_validation->run() == FALSE) {
-            $this->load->view('header', $data);
-            $this->load->view('container');
-            $this->load->view('forgot');
-            $this->load->view('footer');
+            // $this->load->view('header', $data);
+            // $this->load->view('container');
+            // $this->load->view('forgot');
+            // $this->load->view('footer');
+            $this->load->view('auth/header', $data);
+            $this->load->view('auth/forgot');
+            $this->load->view('auth/footer');
         }else{
             $email = $this->input->post('email');
             $clean = $this->security->xss_clean($email);

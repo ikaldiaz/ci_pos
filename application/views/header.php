@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$result = $this->user_model->getAllSettings();
+$result = $this->user_model->getAllSettings(); 
 $theme = $result->theme;
 ?>
 

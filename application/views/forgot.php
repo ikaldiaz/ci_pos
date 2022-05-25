@@ -8,7 +8,7 @@
       <?php echo form_input(array(
           'name'=>'email', 
           'id'=> 'email', 
-          'placeholder'=>'Email', 
+          'placeholder'=>'Email',  
           'class'=>'form-control', 
           'value'=> set_value('email'))); ?>
       <?php echo form_error('email') ?>
