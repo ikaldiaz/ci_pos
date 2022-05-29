@@ -13,9 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ReCaptcha {
 
-    private $dataSitekey = ""; //Your SiteKey
+    private $dataSitekey = "6Lf5fR8gAAAAAG0_QZ3gLWlb82skBxNX_4O7wp0s"; //Your SiteKey
     private $lang = "en";
-    public $secret = ''; //Secret
+    public $secret = '6Lf5fR8gAAAAAC4GBZdDTZRItk3athF1NpTTg5qh'; //Secret
 
     public function render() {
         $return = '<div class="g-recaptcha" data-sitekey="' . $this->dataSitekey . '"></div>
