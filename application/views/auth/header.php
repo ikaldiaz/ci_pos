@@ -24,8 +24,12 @@ $theme = $result->theme;
     <!-- App CSS -->
     <link rel="stylesheet" href="<?php echo base_url().'public/tinydash/css/app-light.css'?>" id="lightTheme" disabled>
     <link rel="stylesheet" href="<?php echo base_url().'public/tinydash/css/app-dark.css'?>" id="darkTheme">
-
+    
+    <?php if($recaptcha == 'yes'){ ?>
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    <?php
+    }
+    ?>
 
   </head>
   <body class="dark ">

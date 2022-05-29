@@ -67,7 +67,10 @@
             ?>
             <?php
             echo form_submit(array('value'=>'Submit', 'class'=>'btn btn-lg btn-primary btn-block')); ?>
-          <a class="btn btn-warning btn-block" href="<?php echo site_url();?>main/login" role="button">Login</a>
+            <p class="mt-3">
+              Already have an account ?  
+            <a href="<?php echo site_url();?>main/login">Login</a>
+            </p>
           <p class="mt-5 mb-3 text-muted">© 2020</p>
         <?php echo form_close(); ?>    
       </div>

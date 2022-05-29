@@ -84,19 +84,22 @@
               </div> -->
             </div>
             <div class="col-md-6">
-              <p class="mb-2">Password requirements</p>
-              <p class="small text-muted mb-2"> To create a new password, you have to meet all of the following requirements: </p>
+              <p class="mb-2">Register requirements</p>
+              <p class="small text-muted mb-2"> To register a new user, you have to meet all of the following requirements: </p>
               <ul class="small text-muted pl-4 mb-0">
-                <li>Minimum 8 character </li>
-                <li>At least one special character</li>
-                <li>At least one number</li>
-                <li>Can’t be the same as a previous password </li>
+                <li>Input your email</li>
+                <li>Then input your First Name and Last Name </li>
+                <li>We will sent you link to create your password by email</li>
+                <li>Click the link on your email, and set the password </li>
               </ul>
             </div>
           </div>
             <?php
             echo form_submit(array('value'=>'Sign up', 'class'=>'btn btn-lg btn-primary btn-block')); ?>
-            <a class="btn btn-info btn-block" href="<?php echo site_url();?>main/login" role="button">Login</a>
+            <p class="mt-3 text-center">
+              Already have an account ?  
+            <a href="<?php echo site_url();?>main/login">Login</a>
+            </p>
           <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
         <?php echo form_close(); ?>
       </div>

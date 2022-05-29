@@ -82,10 +82,13 @@
           }
           ?>
           <?php echo form_submit(array('value'=>'Let me in!', 'class'=>'btn btn-lg btn-primary btn-block')); ?>
-          <p class="mt-2">OR</p>
+          <p class="mt-3">OR</p>
 
-          <a class="btn btn-info btn-block" href="<?php echo site_url();?>main/register" role="button">Register</a>
-          <a class="btn btn-warning btn-block" href="<?php echo site_url();?>main/forgot" role="button">Forgot Password</a>
+          <p class="text-left">Not registered? <a href="<?php echo site_url();?>main/register">Register</a></p>
+          <p class="text-left">Don't Remember your password? <a href="<?php echo site_url();?>main/forgot">Yes, I Do</a></p>
+
+          <!-- <a class="btn btn-info btn-block" href="<?php echo site_url();?>main/register" role="button">Register</a> -->
+          <!-- <a class="btn btn-warning btn-block" href="<?php echo site_url();?>main/forgot" role="button">Forgot Password</a> -->
           <p class="mt-5 mb-3 text-muted">© 2020</p>
         <?php echo form_close(); ?>
 
