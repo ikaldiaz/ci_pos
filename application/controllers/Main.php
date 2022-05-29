@@ -31,17 +31,27 @@ class Main extends CI_Controller {
 	    }
 	    $dataLevel = $this->userlevel->checkLevel($data['role']);
 	    //check user level
+
+
+        $result = $this->user_model->getAllSettings();
+        $sTl = $result->site_title;
         
-	    $data['title'] = "Dashboard AdminXX";
+	    $data['title'] = "Dashboard - ".$sTl;
 	    
         if(empty($this->session->userdata['email'])){
             redirect(site_url().'main/login/');
         }else{
-            $this->load->view('header', $data);
-            $this->load->view('navbar', $data);
-            $this->load->view('container');
-            $this->load->view('index', $data);
-            $this->load->view('footer');
+            // $this->load->view('header', $data);
+            // $this->load->view('navbar', $data);
+            // $this->load->view('container');
+            // $this->load->view('index', $data); 
+            // $this->load->view('footer');
+
+            $this->load->view('main/header', $data);
+            $this->load->view('main/navbar', $data);
+            $this->load->view('main/container');
+            $this->load->view('main/index', $data); 
+            $this->load->view('main/footer');
         }
 
 	}
@@ -107,7 +117,11 @@ class Main extends CI_Controller {
 	    $dataLevel = $this->userlevel->checkLevel($data['role']);
 	    //check user level
 
-        $data['title'] = "Settings";
+
+        $result = $this->user_model->getAllSettings();
+        $sTl = $result->site_title;
+
+        $data['title'] = "Settings - ".$sTl;
         $this->form_validation->set_rules('site_title', 'Site Title', 'required');
         $this->form_validation->set_rules('timezone', 'Timezone', 'required');
         $this->form_validation->set_rules('recaptcha', 'Recaptcha', 'required');
@@ -115,7 +129,8 @@ class Main extends CI_Controller {
 
         $result = $this->user_model->getAllSettings();
         $data['id'] = $result->id;
-	    $data['site_title'] = $result->site_title;
+        $data['site_title'] = $result->site_title;
+	    $data['recaptcha'] = $result->recaptcha;
         $data['timezone'] = $result->timezone;
 	    $data['theme'] = $result->theme;
 	    
@@ -132,11 +147,17 @@ class Main extends CI_Controller {
 	    
 	    if($dataLevel == "is_admin"){
             if ($this->form_validation->run() == FALSE) {
-                $this->load->view('header', $data);
-                $this->load->view('navbar', $data);
-                $this->load->view('container');
-                $this->load->view('settings', $data);
-                $this->load->view('footer');
+                // $this->load->view('header', $data);
+                // $this->load->view('navbar', $data);
+                // $this->load->view('container');
+                // $this->load->view('settings', $data);
+                // $this->load->view('footer');
+
+                $this->load->view('main/header', $data);
+                $this->load->view('main/navbar', $data);
+                $this->load->view('main/container');
+                $this->load->view('main/settings', $data);
+                $this->load->view('main/footer');
             }else{
                 $post = $this->input->post(NULL, TRUE);
                 $cleanPost = $this->security->xss_clean($post);
@@ -161,7 +182,11 @@ class Main extends CI_Controller {
 	public function users()
 	{
 	    $data = $this->session->userdata;
-	    $data['title'] = "User List";
+
+        $result = $this->user_model->getAllSettings();
+        $sTl = $result->site_title;
+
+	    $data['title'] = "User List - ".$sTl;
 	    $data['groups'] = $this->user_model->getUserData();
 
 	    //check user level
@@ -173,11 +198,16 @@ class Main extends CI_Controller {
 
 	    //check is admin or not
 	    if($dataLevel == "is_admin"){
-            $this->load->view('header', $data);
-            $this->load->view('navbar', $data);
-            $this->load->view('container');
-            $this->load->view('user', $data);
-            $this->load->view('footer');
+            // $this->load->view('header', $data);
+            // $this->load->view('navbar', $data);
+            // $this->load->view('container');
+            // $this->load->view('user', $data);
+            // $this->load->view('footer');
+            $this->load->view('main/header', $data);
+            $this->load->view('main/navbar', $data);
+            $this->load->view('main/container');
+            $this->load->view('main/user', $data);
+            $this->load->view('main/footer');
 	    }else{
 	        redirect(site_url().'main/');
 	    }
@@ -423,7 +453,11 @@ class Main extends CI_Controller {
     //register new user from frontend
     public function register()
     {
-        $data['title'] = "Register to Admin";
+        $data = $this->session->userdata;
+        if(!empty($data['email'])){
+            redirect(site_url().'main/');
+        }
+
         $this->load->library('curl');
         $this->load->library('recaptcha');
         $this->form_validation->set_rules('firstname', 'First Name', 'required');
@@ -432,6 +466,7 @@ class Main extends CI_Controller {
         
         $result = $this->user_model->getAllSettings();
         $sTl = $result->site_title;
+        $data['title'] = "Register to Admin";
         $data['recaptcha'] = $result->recaptcha;
  
         if ($this->form_validation->run() == FALSE) {
@@ -746,6 +781,11 @@ class Main extends CI_Controller {
     //forgot password
     public function forgot()
     {
+        $data = $this->session->userdata;
+        if(!empty($data['email'])){
+            redirect(site_url().'main/');
+        }
+        
         $data['title'] = "Forgot Password";
         $this->load->library('curl');
         $this->load->library('recaptcha');

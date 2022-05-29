@@ -8,27 +8,21 @@
         
         $arr = $this->session->flashdata();
         if(!empty($arr['flash_message'])){
-            $html = '<div class="container" style="margin-top: 10px;">';
-            $html .= '<div class="alert alert-warning alert-dismissible" role="alert">';
+            $html = '<div class="alert alert-warning alert-dismissible" role="alert">';
             $html .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
             $html .= $arr['flash_message'];
             $html .= '</div>';
-            $html .= '</div>';
             echo $html;
         }else if (!empty($arr['success_message'])){
-            $html = '<div class="container" style="margin-top: 10px;">';
-            $html .= '<div class="alert alert-info alert-dismissible" role="alert">';
+            $html = '<div class="alert alert-info alert-dismissible" role="alert">';
             $html .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
             $html .= $arr['success_message'];
             $html .= '</div>';
-            $html .= '</div>';
             echo $html;
         }else if (!empty($arr['danger_message'])){
-            $html = '<div class="container" style="margin-top: 10px;">';
-            $html .= '<div class="alert alert-danger alert-dismissible" role="alert">';
+            $html = '<div class="alert alert-danger alert-dismissible" role="alert">';
             $html .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
             $html .= $arr['danger_message'];
-            $html .= '</div>';
             $html .= '</div>';
             echo $html;
         }
