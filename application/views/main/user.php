@@ -18,6 +18,7 @@
 										            <th>Last Login</th>
 										            <th>Level Name</th>
 										            <th>Status</th>
+										            <th>Banned</th>
 										            <th>Action</th>
 										          </tr>
 										        </thead>
@@ -34,7 +35,15 @@
 								                    }elseif($row->role == 3){
 								                        $rolename = "Editor";
 								                    }elseif($row->role == 4){
-								                        $rolename = "Subscriber";
+								                        $rolename = "Subscriber"; 
+								                    }
+
+								                    if($row->banned_users == 'ban'){
+								                        $isbanned = "yes";
+								                        $actionban = "Unban";
+								                    }elseif($row->banned_users == 'unban'){
+								                        $isbanned = "no";
+								                        $actionban = "Ban";
 								                    }
 								                    ?>
 							                <tr>
@@ -42,12 +51,14 @@
 										            <td><?php echo $row->email; ?> </td>
 										            <td><?php echo $row->last_login; ?> </td>
 										            <td><?php echo $rolename; ?> </td>
-										            <td><?php echo $row->status; ?> </td>
+										            <td><?php echo $row->status; ?></td>
+										            <td><?php echo $isbanned; ?></td>
 										            <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										                <span class="text-muted sr-only">Action</span>
 										              </button>
 										              <div class="dropdown-menu dropdown-menu-right">
 										                <a class="dropdown-item" href="<?php echo site_url().'main/changelevel' ?>">Role</a>
+										                <a class="dropdown-item" href="<?php echo site_url().'main/banuser' ?>"><?php echo $actionban; ?></a>
 										                <a class="dropdown-item" href="<?php echo site_url().'main/deleteuser/'.$row->id ?>">Remove</a>
 										              </div>
 										            </td>

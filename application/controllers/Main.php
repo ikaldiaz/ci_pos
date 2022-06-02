@@ -234,11 +234,16 @@ class Main extends CI_Controller {
             $this->form_validation->set_rules('level', 'User Level', 'required');
 
             if ($this->form_validation->run() == FALSE) {
-                $this->load->view('header', $data);
-                $this->load->view('navbar', $data);
-                $this->load->view('container');
-                $this->load->view('changelevel', $data);
-                $this->load->view('footer');
+                // $this->load->view('header', $data);
+                // $this->load->view('navbar', $data);
+                // $this->load->view('container');
+                // $this->load->view('changelevel', $data);
+                // $this->load->view('footer');
+                $this->load->view('main/header', $data);
+                $this->load->view('main/navbar', $data);
+                $this->load->view('main/container');
+                $this->load->view('main/changelevel', $data);
+                $this->load->view('main/footer');
             }else{
                 $cleanPost['email'] = $this->input->post('email');
                 $cleanPost['level'] = $this->input->post('level');
@@ -275,11 +280,16 @@ class Main extends CI_Controller {
             $this->form_validation->set_rules('banuser', 'Ban or Unban', 'required');
 
             if ($this->form_validation->run() == FALSE) {
-                $this->load->view('header', $data);
-                $this->load->view('navbar', $data);
-                $this->load->view('container');
-                $this->load->view('banuser', $data);
-                $this->load->view('footer');
+                // $this->load->view('header', $data);
+                // $this->load->view('navbar', $data);
+                // $this->load->view('container');
+                // $this->load->view('banuser', $data);
+                // $this->load->view('footer');
+                $this->load->view('main/header', $data);
+                $this->load->view('main/navbar', $data);
+                $this->load->view('main/container');
+                $this->load->view('main/banuser', $data);
+                $this->load->view('main/footer');
             }else{
                 $post = $this->input->post(NULL, TRUE);
                 $cleanPost = $this->security->xss_clean($post);
@@ -320,11 +330,16 @@ class Main extends CI_Controller {
         $data['groups'] = $this->user_model->getUserInfo($dataInfo['id']);
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('header', $data);
-            $this->load->view('navbar', $data);
-            $this->load->view('container');
-            $this->load->view('changeuser', $data);
-            $this->load->view('footer');
+            // $this->load->view('header', $data);
+            // $this->load->view('navbar', $data);
+            // $this->load->view('container');
+            // $this->load->view('changeuser', $data);
+            // $this->load->view('footer');
+            $this->load->view('main/header', $data);
+            $this->load->view('main/navbar', $data);
+            $this->load->view('main/container');
+            $this->load->view('main/changeuser', $data);
+            $this->load->view('main/footer');
         }else{
             $this->load->library('password');
             $post = $this->input->post(NULL, TRUE);
@@ -354,11 +369,16 @@ class Main extends CI_Controller {
 	    }
 
         $data['title'] = "Profile";
-        $this->load->view('header', $data);
-        $this->load->view('navbar', $data);
-        $this->load->view('container');
-        $this->load->view('profile', $data);
-        $this->load->view('footer');
+        // $this->load->view('header', $data);
+        // $this->load->view('navbar', $data);
+        // $this->load->view('container');
+        // $this->load->view('profile', $data);
+        // $this->load->view('footer');
+        $this->load->view('main/header', $data);
+        $this->load->view('main/navbar', $data);
+        $this->load->view('main/container');
+        $this->load->view('main/profile', $data);
+        $this->load->view('main/footer');
 
     }
 
@@ -404,7 +424,7 @@ class Main extends CI_Controller {
 	    //check user level
 
 	    //check is admin or not
-	    if($dataLevel == "is_admin"){
+	    if($dataLevel == "is_admin"){ 
             $this->form_validation->set_rules('firstname', 'First Name', 'required');
             $this->form_validation->set_rules('lastname', 'Last Name', 'required');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
@@ -414,11 +434,17 @@ class Main extends CI_Controller {
 
             $data['title'] = "Add User";
             if ($this->form_validation->run() == FALSE) {
-                $this->load->view('header', $data);
-                $this->load->view('navbar');
-                $this->load->view('container');
-                $this->load->view('adduser', $data);
-                $this->load->view('footer');
+                // $this->load->view('header', $data);
+                // $this->load->view('navbar');
+                // $this->load->view('container');
+                // $this->load->view('adduser', $data);
+                // $this->load->view('footer');
+
+                $this->load->view('main/header', $data);
+                $this->load->view('main/navbar');
+                $this->load->view('main/container');
+                $this->load->view('main/adduser', $data);
+                $this->load->view('main/footer');
             }else{
                 if($this->user_model->isDuplicate($this->input->post('email'))){
                     $this->session->set_flashdata('flash_message', 'User email already exists');

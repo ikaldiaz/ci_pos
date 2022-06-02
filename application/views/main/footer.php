@@ -1,3 +1,4 @@
+<p>Page rendered in <strong>{elapsed_time}</strong> seconds. </p>
         </div> <!-- .container-fluid -->
       </main> <!-- main -->
 
