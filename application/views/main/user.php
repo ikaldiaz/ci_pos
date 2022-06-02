@@ -18,7 +18,6 @@
 										            <th>Last Login</th>
 										            <th>Level Name</th>
 										            <th>Status</th>
-										            <th>Banned</th>
 										            <th>Action</th>
 										          </tr>
 										        </thead>
@@ -39,10 +38,10 @@
 								                    }
 
 								                    if($row->banned_users == 'ban'){
-								                        $isbanned = "yes";
+								                        $isbanned = '<span class="badge badge-pill badge-danger">banned</span>';
 								                        $actionban = "Unban";
 								                    }elseif($row->banned_users == 'unban'){
-								                        $isbanned = "no";
+								                        $isbanned = "";
 								                        $actionban = "Ban";
 								                    }
 								                    ?>
@@ -51,8 +50,8 @@
 										            <td><?php echo $row->email; ?> </td>
 										            <td><?php echo $row->last_login; ?> </td>
 										            <td><?php echo $rolename; ?> </td>
-										            <td><?php echo $row->status; ?></td>
-										            <td><?php echo $isbanned; ?></td>
+                              
+										            <td><?php echo $row->status; ?> <?php echo $isbanned; ?></td>
 										            <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										                <span class="text-muted sr-only">Action</span>
 										              </button>

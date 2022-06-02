@@ -17,8 +17,9 @@
                             <div class="col-md-6 col-12">
                               <div class="form-group mb-3">
                                 <label for="email">Email</label>
-                                <select class="form-control" name="email" id="email">
+                                <select class="form-control select2" name="email" id="email">
                                     <?php
+                                      echo '<option value="">Choose email...</option>';
                                     foreach($groups as $row)
                                     { 
                                       echo '<option value="'.$row->email.'">'.$row->email.'</option>';
@@ -32,7 +33,7 @@
                                 <label for="level">Level</label>
                                 <?php
                                     $dd_list = array(
-                                              '1'   => 'Admin',
+                                              // '1'   => 'Admin',
                                               '2'   => 'Author',
                                               '3'   => 'Editor',
                                               '4'   => 'Subscriber',

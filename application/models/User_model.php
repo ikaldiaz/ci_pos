@@ -260,7 +260,10 @@ class User_model extends CI_Model {
     //get email user
     public function getUserData()
     {   
-        $query = $this->db->get('users');
+        // $query = $this->db->get('users');
+        $query =  $this->db->where('email !=', 'admin@gmail.com');
+        $query =  $this->db->from('users');
+        $query = $this->db->get();
         return $query->result();
     }
     

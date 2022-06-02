@@ -17,8 +17,10 @@
                             <div class="col-md-6 col-12">
                               <div class="form-group mb-3">
                                 <label for="email">Email</label>
-						        <select class="form-control" name="email" id="email">
+						        <select class="form-control select2" name="email" id="email">
 						            <?php
+                          echo '<option value="">Choose email...</option>';
+
 						            foreach($groups as $row)
 						            { 
 						              echo '<option value="'.$row->email.'">'.$row->email.'</option>';
@@ -32,8 +34,8 @@
                                 <label for="banuser">Choose to Ban</label>
 							    <?php
 							        $dd_list = array(
-							                  'unban'   => 'Unban',
 							                  'ban'   => 'Ban',
+							                  'unban'   => 'Unban',
 							                );
 							        $dd_name = "banuser";
 							        echo form_dropdown($dd_name, $dd_list, set_value($dd_name),'class = "form-control" id="banuser"');
