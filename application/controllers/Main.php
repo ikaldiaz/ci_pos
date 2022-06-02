@@ -621,10 +621,13 @@ class Main extends CI_Controller {
     public function successregister()
     {
         $data['title'] = "Success Register";
-        $this->load->view('header', $data);
-        $this->load->view('container');
-        $this->load->view('register-info');
-        $this->load->view('footer');
+        // $this->load->view('header', $data);
+        // $this->load->view('container');
+        // $this->load->view('register-info'); 
+        // $this->load->view('footer');
+        $this->load->view('auth/header', $data);
+        $this->load->view('auth/register-info');
+        $this->load->view('auth/footer');
     }
 
     //if success after set password
@@ -636,7 +639,7 @@ class Main extends CI_Controller {
         // $this->load->view('reset-pass-info');
         // $this->load->view('footer');
         $this->load->view('auth/header', $data);
-        $this->load->view('reset-pass-info');
+        $this->load->view('auth/reset-pass-info');
         $this->load->view('auth/footer');
     }
 
@@ -921,9 +924,10 @@ class Main extends CI_Controller {
         $token = $this->base64url_decode($this->uri->segment(4));
         $cleanToken = $this->security->xss_clean($token);
         $user_info = $this->user_model->isTokenValid($cleanToken); //either false or array();
+        $tkd = $this->base64url_decode('9a40d26bee07e13c85cbd263209918');
 
         if(!$user_info){
-            $this->session->set_flashdata('flash_message', 'Token is invalid or expired');
+            $this->session->set_flashdata('flash_message', 'Token is invalid or expired'.$tkd.' AAAA');
             redirect(site_url().'main/login');
         }
         $data = array(
@@ -938,10 +942,13 @@ class Main extends CI_Controller {
         $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|matches[password]');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('header', $data);
-            $this->load->view('container');
-            $this->load->view('reset_password', $data);
-            $this->load->view('footer');
+            // $this->load->view('header', $data);
+            // $this->load->view('container');
+            // $this->load->view('reset_password', $data);
+            // $this->load->view('footer');
+            $this->load->view('auth/header', $data);
+            $this->load->view('auth/reset_password', $data);
+            $this->load->view('auth/footer');
         }else{
             $this->load->library('password');
             $post = $this->input->post(NULL, TRUE);
