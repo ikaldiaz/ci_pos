@@ -962,7 +962,7 @@ class Main extends CI_Controller {
             }else{
                 $this->session->set_flashdata('success_message', 'Your password has been updated. You may now login');
             }
-            redirect(site_url().'main/checkLoginUser');
+            redirect(site_url().'main/login');
         }
     }
 
