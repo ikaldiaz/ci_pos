@@ -647,7 +647,7 @@ class Main extends CI_Controller {
         return strpos($_SERVER['HTTP_HOST'], 'local');
     }
 
-    //check if complate after add new user
+    //check if complate after add new user 
     public function complete()
     {
         $token = base64_decode($this->uri->segment(4));
@@ -672,10 +672,16 @@ class Main extends CI_Controller {
         $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|matches[password]');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('header', $data);
-            $this->load->view('container');
-            $this->load->view('complete', $data);
-            $this->load->view('footer');
+            // $this->load->view('header', $data);
+            // $this->load->view('container');
+            // $this->load->view('complete', $data);
+            // $this->load->view('footer');
+
+            $this->load->view('auth/header', $data);
+            $this->load->view('auth/complete', $data);
+            $this->load->view('auth/footer');
+
+
         }else{
             $this->load->library('password');
             $post = $this->input->post(NULL, TRUE);

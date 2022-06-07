@@ -2,7 +2,7 @@
     <div class="wrapper vh-100">
       <div class="row align-items-center h-100">
         <?php $fattr = array('class' => 'col-lg-3 col-md-4 col-10 mx-auto text-center');
-		    echo form_open(site_url().'main/reset_password/token/'.$token, $fattr); ?>
+    	echo form_open(site_url().'main/complete/token/'.$token, $fattr); ?>
 
           <div class="mx-auto text-center my-4">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
@@ -14,7 +14,7 @@
                 </g>
               </svg> 
             </a>
-            <h2 class="my-3">Reset your password</h2>
+            <h2 class="my-3">Almost There!</h2>
           </div>
          <?php
             //for warning -> flash_message 
@@ -47,7 +47,8 @@
                 echo $html;
             }
         ?>
-          <p class="text-muted">Hello <span><?php echo $firstName; ?></span>, <br>Please enter your password 2x below to reset.</p>
+          <p class="text-muted">Hello <span><?php echo $firstName; ?></span>. <br>Your username is <span><?php echo $email;?></span>.</p>
+          <p class="text-muted">Please enter a password to begin using the site.</p>
           <div class="form-group">
             <label for="password" class="sr-only">Password</label>
 		      <?php echo form_password(array('name'=>'password', 'id'=> 'password', 'placeholder'=>'Password', 'class'=>'form-control', 'value' => set_value('password'))); ?>
@@ -58,8 +59,10 @@
 		      <?php echo form_password(array('name'=>'passconf', 'id'=> 'passconf', 'placeholder'=>'Confirm Password', 'class'=>'form-control', 'value'=> set_value('passconf'))); ?>
 		      <?php echo form_error('passconf') ?>
           </div>
+    		<?php echo form_hidden('user_id', $user_id);?>
+
             <?php
-            echo form_submit(array('value'=>'Reset Password', 'class'=>'btn btn-lg btn-primary btn-block')); ?>
+            echo form_submit(array('value'=>'Complete', 'class'=>'btn btn-lg btn-primary btn-block')); ?>
           <p class="mt-5 mb-3 text-muted">© 2020</p>
         <?php echo form_close(); ?>    
       </div>
